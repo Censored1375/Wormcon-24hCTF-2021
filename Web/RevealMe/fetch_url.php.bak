@@ -1,0 +1,15 @@
+<?php
+session_start();
+
+if($_SESSION['last_page'] != "REDACTED"){
+  session_destroy();
+  header("Location: index.php");
+}
+
+if (isset($_GET['url'])) {
+  $url = $_GET['url'];
+  if(preg_match('/-F|-T|index.php/i',$url)) die("Use of Flags are banned.\n Dont try to exploit.\n Your malicious intent will be recorded.");
+  system(escapeshellcmd('curl -l '.$url)); 
+
+}
+?>

@@ -1,0 +1,70 @@
+<?php
+error_reporting(0);
+session_start(); 
+
+if (isset($_POST['submit'])) {
+  $pass = "REDACTED";
+	extract($_POST);
+  if (!empty($password)) {
+  	if ($password === $pass) {
+      $_SESSION['last_page'] = "REDACTED";
+  		header('Location: fetch_url.php');
+	 }
+  else{
+    die("You have entered wrong password\n Please contact Admin for your password.");
+  }
+  }
+}
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <title>Inception Secret Portal</title>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Login</h2>
+    <form method="POST">
+      <!-- /.user-box -->
+      <div class="user-box">
+        <input class="input" type="text" name="password" placeholder=""> 
+        <label class="label" for="">Password</label>
+      </div>
+      <div class="user-box2">
+      <input type="submit" name="submit" value="Login">
+      </div>
+
+      <!-- <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <button>Submit</button> -->
+    </form>
+    <!-- /form -->
+  </div>
+  <!-- /.login-box -->
+  
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
